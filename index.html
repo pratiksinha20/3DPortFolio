@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratik Kumar Sinha | 3D Interactive Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body style="color: black;">
+    <!-- Three.js Canvas Container -->
+    <div id="canvas-container"></div>
+
+    <!-- Glowing Background Ambient Orbs (Google Brands inspired) -->
+    <div class="ambient-orbs">
+        <div class="orb blue-orb"></div>
+        <div class="orb red-orb"></div>
+        <div class="orb yellow-orb"></div>
+        <div class="orb green-orb"></div>
+    </div>
+
+    <!-- Custom Glowing Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-dot"></div>
+
+    <!-- Background Tech Grid Overlay -->
+    <div class="grid-overlay"></div>
+
+    <!-- Loader Screen -->
+    <div id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">PKS</div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+            <p class="loader-text">Loading 3D Dimension </p>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-accent">&lt;</span>Pratik<span class="logo-accent"> /&gt;</span>
+            </a>
+            
+            <nav class="navbar">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="nav-socials">
+                <a href="https://github.com/pratiksinha20" target="_blank" title="GitHub" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/pratik-kumar-sinha-9305a0334" target="_blank" title="LinkedIn" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://leetcode.com/u/pratiksinha20/" target="_blank" title="LeetCode" class="social-icon"><i class="code-icon">LC</i></a>
+                <a href="https://codeforces.com/profile/pratiksinha20" target="_blank" title="Codeforces" class="social-icon"><i class="code-icon">CF</i></a>
+            </div>
+
+            <button class="mobile-menu-btn" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav">
+        <a href="#hero" class="mobile-link">Home</a>
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#skills" class="mobile-link">Skills</a>
+        <a href="#projects" class="mobile-link">Projects</a>
+        <a href="#education" class="mobile-link">Education</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+        <div class="mobile-socials">
+            <a href="https://github.com/pratiksinha20" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/pratik-kumar-sinha-9305a0334" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://leetcode.com/u/pratiksinha20/" target="_blank">LC</a>
+            <a href="https://codeforces.com/profile/pratiksinha20" target="_blank">CF</a>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="main-content">
+        
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <div class="hero-tag" data-reveal="fade-down">
+                    <span class="pulse-dot"></span>
+                    Available for Internships & Projects
+                </div>
+                <h1 class="hero-title" data-reveal="fade-up">
+                    <span class="greeting">Hey, I'm</span>
+                    <span class="name-gradient">Pratik Sinha</span>
+                </h1>
+                <h2 class="hero-subtitle" data-reveal="fade-up" data-reveal-delay="200">
+                    I build <span class="typing-text"></span>
+                </h2>
+                <p class="hero-desc" data-reveal="fade-up" data-reveal-delay="400">
+                    Computer Science student with hands-on experience building real-time systems, full-stack applications, and AI integrations. Strong in backend development, data structures, and interactive designs.
+                </p>
+                <div class="hero-ctas" data-reveal="fade-up" data-reveal-delay="600">
+                    <a href="#projects" class="btn btn-primary">
+                        <span>View Projects</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+
+                    <a href="assets/resume.pdf" target="_blank"  class="btn btn-primary" >
+                        <span>View Resume</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+
+                    <a href="assets/resume.pdf" class="btn btn-primary">
+                        <span>Download Resume</span>
+                        <i class="fas fa-download"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="gravity-hint">
+                <div class="mouse-icon">
+                    <div class="mouse-wheel"></div>
+                </div>
+                <p>Move mouse to disrupt gravity</p>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section about-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="subtitle">Brief Overview</span>
+                    <h2 class="title">About My Background</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-card profile-card" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="profile-frame">
+                            <!-- Avatar using a clean SVG or styled icon until custom images exist -->
+                            <div class="profile-avatar">
+                                <i class="fas fa-user-astronaut"></i>
+                            </div>
+                        </div>
+                        <h3>Pratik Kumar Sinha</h3>
+                        <p class="role-badge">Computer Science Student & Developer</p>
+                        <div class="profile-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Chandigarh, Punjab</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>sinhapratik198@gmail.com</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <span>+91-7667238151</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-text-card">
+                        <p class="p-highlight">
+                            I am a highly motivated Computer Science & Engineering undergraduate at Chandigarh University. My focus lies in designing scalable systems, building real-time full-stack applications, and diving deep into data structures, algorithms, and AI/machine learning.
+                        </p>
+                        <p>
+                            I enjoy bridging the gap between frontend aesthetics and robust backend architecture. Whether optimizing frame processing rates in computer vision gesture detection systems or building WebSocket-enabled chat apps, I approach challenges with a performance-first mindset.
+                        </p>
+
+                        <div class="metrics-grid">
+                            <div class="metric-card" data-tilt>
+                                <h4>8.39 / 10</h4>
+                                <p>B.E. CGPA</p>
+                            </div>
+                            <div class="metric-card" data-tilt>
+                                <h4>91.4%</h4>
+                                <p>Intermediate (12th)</p>
+                            </div>
+                            <div class="metric-card" data-tilt>
+                                <h4>91.4%</h4>
+                                <p>Matriculation (10th)</p>
+                            </div>
+                        </div>
+
+                        <div class="certifications-card">
+                            <h3><i class="fas fa-certificate"></i> Key Certifications</h3>
+                            <ul class="cert-list">
+                                <li>
+                                    <span class="cert-bullet"></span>
+                                    <div class="cert-info">
+                                        <strong>NPTEL Certified</strong>
+                                        <p>Introduction to Machine Learning (IIT Madras)</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="cert-bullet"></span>
+                                    <div class="cert-info">
+                                        <strong>Oracle Cloud Infrastructure 2025</strong>
+                                        <p>Certified Data Science Associate</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="cert-bullet"></span>
+                                    <div class="cert-info">
+                                        <strong>Deloitte</strong>
+                                        <p>Data Analytics Certificate</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section skills-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="subtitle">Stack & Capabilities</span>
+                    <h2 class="title">Technical Expertise</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="skills-grid">
+                    <!-- Languages -->
+                    <div class="skill-category-card" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="cat-header">
+                            <i class="fas fa-code"></i>
+                            <h3>Languages</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">C</span>
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Java</span>
+                        </div>
+                    </div>
+
+                    <!-- Web Technologies -->
+                    <div class="skill-category-card" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="cat-header">
+                            <i class="fas fa-globe"></i>
+                            <h3>Web & Frameworks</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">TailwindCSS</span>
+                            <span class="skill-tag">React.js</span>
+                            <span class="skill-tag">Spring Boot</span>
+                            <span class="skill-tag">REST API</span>
+                        </div>
+                    </div>
+
+                    <!-- Databases -->
+                    <div class="skill-category-card" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="cat-header">
+                            <i class="fas fa-database"></i>
+                            <h3>Databases</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                        </div>
+                    </div>
+
+                    <!-- Libraries / Tools -->
+                    <div class="skill-category-card" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="cat-header">
+                            <i class="fas fa-tools"></i>
+                            <h3>Libraries & Tools</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Git & GitHub</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Kubernetes</span>
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">OpenCV</span>
+                            <span class="skill-tag">MediaPipe</span>
+                            <span class="skill-tag">Flask</span>
+                            <span class="skill-tag">Postman</span>
+                            <span class="skill-tag">Vercel</span>
+                            <span class="skill-tag">Netlify</span>
+                            <span class="skill-tag">PowerBI</span>
+                            <span class="skill-tag">Linux</span>
+                        </div>
+                    </div>
+
+                    <!-- Core Subjects -->
+                    <div class="skill-category-card" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="cat-header">
+                            <i class="fas fa-book"></i>
+                            <h3>Core Subjects</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Data Structures & Algorithms</span>
+                            <span class="skill-tag">OOPs</span>
+                            <span class="skill-tag">Operating Systems</span>
+                            <span class="skill-tag">System Design</span>
+                            <span class="skill-tag">DBMS</span>
+                            <span class="skill-tag">Machine Learning</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section projects-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="subtitle">My Work</span>
+                    <h2 class="title">Featured Projects</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="project-header">
+                            <span class="project-type"><i class="fas fa-eye"></i> Computer Vision</span>
+                            <h3>VisioSense</h3>
+                        </div>
+                        <p class="project-desc">
+                            Real-time gesture and facial recognition system optimizing live video frame processing. Improves accuracy and maintains solid real-time performance on typical cameras.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">OpenCV</span>
+                            <span class="tech-tag">MediaPipe</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/pratiksinha20" target="_blank" class="project-link-btn"><i class="fab fa-github"></i> Repository</a>
+                            <a href="#" class="project-link-btn disabled"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="project-header">
+                            <span class="project-type"><i class="fas fa-comments"></i> Real-time AI</span>
+                            <h3>PulseChat</h3>
+                        </div>
+                        <p class="project-desc">
+                            AI-powered multilingual chat application with real-time translation capabilities. Features low latency communication using WebSocket integrations and translation APIs.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">WebSockets</span>
+                            <span class="tech-tag">Gemini API</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/pratiksinha20" target="_blank" class="project-link-btn"><i class="fab fa-github"></i> Repository</a>
+                            <a href="#" class="project-link-btn disabled"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="project-header">
+                            <span class="project-type"><i class="fas fa-map-marked-alt"></i> Travel Platform</span>
+                            <h3>Explorily</h3>
+                        </div>
+                        <p class="project-desc">
+                            Interactive travel exploration web application featuring dynamic layout structures. Integrated REST APIs to enable real-time geographical querying of travel points by location.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">CSS Grid</span>
+                            <span class="tech-tag">REST APIs</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/pratiksinha20" target="_blank" class="project-link-btn"><i class="fab fa-github"></i> Repository</a>
+                            <a href="#" class="project-link-btn disabled"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="project-header">
+                            <span class="project-type"><i class="fas fa-file-invoice"></i> Dynamic Forms</span>
+                            <h3>PulseForm</h3>
+                        </div>
+                        <p class="project-desc">
+                            Dynamic form builder application featuring solid backend validation systems. Implements duplicate entry prevention algorithms checking existing user database clusters.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">TailwindCSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/pratiksinha20" target="_blank" class="project-link-btn"><i class="fab fa-github"></i> Repository</a>
+                            <a href="#" class="project-link-btn disabled"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section education-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="subtitle">Academic Journey</span>
+                    <h2 class="title">Education & Achievements</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="edu-grid">
+                    <!-- Timeline -->
+                    <div class="education-timeline">
+                        <!-- Edu 1 -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content" data-tilt>
+                                <div class="timeline-year">2024 – 2028</div>
+                                <h3>Chandigarh University, Punjab</h3>
+                                <p class="degree">Bachelor of Engineering (Computer Science & Engineering)</p>
+                                <div class="score-badge">CGPA: 8.39 / 10</div>
+                            </div>
+                        </div>
+
+                        <!-- Edu 2 -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content" data-tilt>
+                                <div class="timeline-year">2022 – 2024</div>
+                                <h3>Inter Science College, Hazaribagh</h3>
+                                <p class="degree">Intermediate (Science)</p>
+                                <div class="score-badge">Percentage: 91.4%</div>
+                            </div>
+                        </div>
+
+                        <!-- Edu 3 -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content" data-tilt>
+                                <div class="timeline-year">2021 – 2022</div>
+                                <h3>Modern Public School, Dadpur</h3>
+                                <p class="degree">Matriculation (10th Grade)</p>
+                                <div class="score-badge">Percentage: 91.4%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Achievements & Languages Info Card -->
+                    <div class="achievements-card-container">
+                        <div class="achievements-card" data-tilt>
+                            <div class="card-glow"></div>
+                            <h3><i class="fas fa-trophy"></i> Key Achievements</h3>
+                            <ul class="achieve-list">
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Active problem solver across competitive platforms including LeetCode, HackerRank, and Codeforces.</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Participated in Coding Ninja Hackathons and multiple weekly algorithmic challenges.</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Successfully applied OpenCV real-time visual tracking system algorithms inside college hackathons.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="languages-card" data-tilt>
+                            <div class="card-glow"></div>
+                            <h3><i class="fas fa-language"></i> Languages</h3>
+                            <div class="lang-bubbles">
+                                <span class="lang-bubble">English (Professional)</span>
+                                <span class="lang-bubble">Hindi (Native / Bilingual)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="subtitle">Get In Touch</span>
+                    <h2 class="title">Contact Me</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-info-panel">
+                        <p class="contact-pitch">
+                            Have an exciting project to build, internship opportunities, or just want to chat? Drop me a message and I'll get back to you!
+                        </p>
+
+                        <div class="contact-info-cards">
+                            <div class="info-card" data-tilt>
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>Email Me</h4>
+                                    <a href="mailto:sinhapratik198@gmail.com">sinhapratik198@gmail.com</a>
+                                </div>
+                            </div>
+
+                            <div class="info-card" data-tilt>
+                                <i class="fas fa-phone-alt"></i>
+                                <div>
+                                    <h4>Call Me</h4>
+                                    <a href="tel:+917667238151">+91 76672 38151</a>
+                                </div>
+                            </div>
+
+                            <div class="info-card" data-tilt>
+                                <i class="fab fa-whatsapp"></i>
+                                <div>
+                                    <h4>WhatsApp</h4>
+                                    <a href="https://wa.me/917667238151" target="_blank">Chat with me</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-panel" data-tilt>
+                        <div class="card-glow"></div>
+                        <!-- Web3Forms Form Integration - emails directly to user -->
+                        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                            <!-- Web3Forms Access Key: Using active form validation with fallbacks -->
+                            <!-- Note: The user can register at web3forms.com to get an access key. We pre-fill it with a prompt, or use a standard structure -->
+                            <input type="hidden" name="access_key" value="0b1634b9-04ff-4444-a0b8-c7feec8503bc">
+                            <input type="hidden" name="subject" value="New Portfolio Contact Form Submission">
+                            <input type="hidden" name="from_name" value="Portfolio Visitor">
+                            
+                            <!-- Custom Redirect (Optional) -->
+                            <!-- <input type="hidden" name="redirect" value="https://web3forms.com/success"> -->
+
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" placeholder="John Doe" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="msg-subject">Subject</label>
+                                <input type="text" id="msg-subject" name="msg-subject" placeholder="Project Discussion" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+                            </div>
+
+                            <div id="form-result" class="form-result"></div>
+
+                            <button type="submit" class="btn btn-primary submit-btn">
+                                <span>Send Message</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="copyright">&copy; 2026 Pratik Kumar Sinha. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#hero">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Three.js Library CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Custom JS -->
+    <script src="app.js"></script>
+</body>
+</html>
